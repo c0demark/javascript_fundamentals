@@ -60,7 +60,8 @@
                 eventHandler : null,
                 addEventListener : function(event, eventHandler) {
                     var functionObject = arguments[1];
-                    // functionObject("a", "b");
+                    console.log(Function);
+                    functionObject("a", "b");
                     // functionObject.arguments["0"] = "MouseEvent";
                     console.log(functionObject);
                     if (this.event === event) {
@@ -71,19 +72,20 @@
             };
             // simulates adding adding event listener on DOM element
             element.addEventListener("click", function() {
+                console.log("inside click eventHandler adding");
                 console.log(arguments);
                 console.log("eventHandler function called");
             });
             // simulates "click" event on DOM element
-            setTimeout(element.eventHandler, 2000);
+            // setTimeout(element.eventHandler, 2000);
         })();
     };
 
-    fnAccessOuterScopedVariables();
-    fnCallInnerIife();
-    fnCallInnerIifeWithCallback();
-    fnCallInnerIifeWithOutsideVariableAccessFromClosure();
-    var returnedFunctionHolder = fnCallInnerIifeWithClosureReturningFunction();
-    returnedFunctionHolder();
+    // fnAccessOuterScopedVariables();
+    // fnCallInnerIife();
+    // fnCallInnerIifeWithCallback();
+    // fnCallInnerIifeWithOutsideVariableAccessFromClosure();
+    // var returnedFunctionHolder = fnCallInnerIifeWithClosureReturningFunction();
+    // returnedFunctionHolder();
     fnCallInnerIifeWithPrivateVariablesInsideClosure();
 })();
